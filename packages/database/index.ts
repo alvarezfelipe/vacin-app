@@ -1,2 +1,2 @@
-export * from '@prisma/client';
-export * from '@prisma/extension-accelerate';
+export * from "@prisma/client";
+export * from "@prisma/extension-accelerate";

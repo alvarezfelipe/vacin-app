@@ -1,17 +1,17 @@
 {
-    "name": "database",
-    "version": "0.0.0",
-    "main": "./index.ts",
-    "types": "./index.ts",
-    "scripts": {
-        "db:generate": "prisma generate --accelerate",
-        "db:push": "prisma db push --skip-generate"
-    },
-    "dependencies": {
-        "@prisma/client": "^5.2.0",
-        "@prisma/extension-accelerate": "^0.6.2"
-    },
-    "devDependencies": {
-        "prisma": "^5.2.0"
-    }
+  "name": "database",
+  "version": "0.0.0",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "scripts": {
+    "db:generate": "prisma generate --accelerate",
+    "db:push": "prisma db push --skip-generate"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.2.0",
+    "@prisma/extension-accelerate": "^0.6.2"
+  },
+  "devDependencies": {
+    "prisma": "^5.2.0"
+  }
 }
