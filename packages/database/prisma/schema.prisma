@@ -31,19 +31,19 @@ model Common {
   email     String     @unique
   address   String
   birthDate DateTime   @map("birth_date")
-  Schedule  Schedule[]
+  Schedules Schedule[]
 
   @@map("commons")
 }
 
 model Entity {
-  id       String      @id @default(auto()) @map("_id") @db.ObjectId
-  user     User        @relation(fields: [userId], references: [id])
-  userId   String      @unique @map("user_id") @db.ObjectId
-  name     String
-  address  String
-  role     EntityRoles @default(MATERNITY) @map("_role")
-  Schedule Schedule[]
+  id        String      @id @default(auto()) @map("_id") @db.ObjectId
+  user      User        @relation(fields: [userId], references: [id])
+  userId    String      @unique @map("user_id") @db.ObjectId
+  name      String
+  address   String
+  role      EntityRoles @default(MATERNITY) @map("_role")
+  Schedules Schedule[]
 
   @@map("entities")
 }
