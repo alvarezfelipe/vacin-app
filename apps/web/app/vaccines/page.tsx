@@ -1,5 +1,5 @@
 const VaccinePage = () => {
-    return <h1>HELLO WORLD!</h1>
-}
+  return <h1>HELLO WORLD!</h1>;
+};
 
-export default VaccinePage
+export default VaccinePage;

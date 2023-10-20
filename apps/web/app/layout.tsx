@@ -1,4 +1,4 @@
-import "theme/theme.css"
+import "theme/theme.css";
 import "./globals.css";
 import type { Metadata } from "next";
 import { getVaccines } from "../db/schemas/api";
@@ -12,7 +12,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-
   return (
     <html lang="pt-br">
       <body>{children}</body>
