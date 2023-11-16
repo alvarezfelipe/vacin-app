@@ -11,21 +11,23 @@ datasource db {
   directUrl = env("DIRECT_DATABASE_URL")
 }
 
-model User {
-  id       String   @id @default(auto()) @map("_id") @db.ObjectId
-  code     String   @unique
-  password String
-  Common   Common?
-  Entity   Entity?
-  Maneger  Maneger?
+// model User {
+//   id       String   @id @default(auto()) @map("_id") @db.ObjectId
+//   code     String   @unique
+//   password String
+//   Common   Common?
+//   Entity   Entity?
+//   Maneger  Maneger?
 
-  @@map("users")
-}
+//   @@map("users")
+// }
 
 model Common {
   id        String     @id @default(auto()) @map("_id") @db.ObjectId
-  user      User       @relation(fields: [userId], references: [id])
-  userId    String     @unique @map("user_id") @db.ObjectId
+  // user      User       @relation(fields: [userId], references: [id])
+  // userId    String     @unique @map("user_id") @db.ObjectId
+  username  String     @unique
+  password  String
   name      String
   cpf       String
   email     String     @unique
@@ -38,8 +40,10 @@ model Common {
 
 model Entity {
   id        String      @id @default(auto()) @map("_id") @db.ObjectId
-  user      User        @relation(fields: [userId], references: [id])
-  userId    String      @unique @map("user_id") @db.ObjectId
+  // user      User        @relation(fields: [userId], references: [id])
+  // userId    String      @unique @map("user_id") @db.ObjectId
+  username  String      @unique
+  password  String
   name      String
   address   String
   role      EntityRoles @default(MATERNITY) @map("_role")
@@ -54,18 +58,20 @@ enum EntityRoles {
 }
 
 model Maneger {
-  id     String @id @default(auto()) @map("_id") @db.ObjectId
-  user   User   @relation(fields: [userId], references: [id])
-  userId String @unique @map("user_id") @db.ObjectId
-  name   String
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  username String @unique
+  password String
+  // user   User   @relation(fields: [userId], references: [id])
+  // userId String @unique @map("user_id") @db.ObjectId
+  name     String
 
   @@map("manegers")
 }
 
 model Vaccine {
-  id       String     @id @default(auto()) @map("_id") @db.ObjectId
-  name     String     @unique
-  batche   String
+  id        String     @id @default(auto()) @map("_id") @db.ObjectId
+  name      String     @unique
+  batche    String
   Schedules Schedule[]
 
   @@map("vaccines")

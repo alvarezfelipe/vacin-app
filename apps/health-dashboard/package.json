@@ -1,0 +1,36 @@
+{
+  "name": "health-dashboard",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "database": "workspace:*",
+    "hookings": "^2.4.0",
+    "next": "14.0.3",
+    "next-auth": "^4.24.3",
+    "react": "^18",
+    "react-dom": "^18",
+    "theme": "workspace:*",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.0.1",
+    "eslint": "^8",
+    "eslint-config-custom": "workspace:*",
+    "eslint-config-next": "14.0.3",
+    "postcss": "^8",
+    "tailwind-config": "workspace:*",
+    "tailwindcss": "^3.3.0",
+    "tsconfig": "workspace:*",
+    "typescript": "^5"
+  }
+}

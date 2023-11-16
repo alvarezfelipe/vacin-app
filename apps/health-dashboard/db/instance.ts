@@ -4,9 +4,9 @@ import bcrypt from "bcryptjs"
 const prismaClientSingleton = () => {
   return new PrismaClient().$extends({
     model: {
-      common: {
+      entity: {
         async signIn(username: string, password: string) {
-          const user = await prisma.common.findUniqueOrThrow({
+          const user = await prisma.entity.findFirstOrThrow({
             where: {
               username
             }

@@ -33,7 +33,7 @@ export const authOptions: NextAuthOptions = {
                 try {
                     CredentialsSchema.parse({ username, password })
 
-                    return await prisma.common.signIn(username, password)
+                    return await prisma.entity.signIn(username, password)
                 } catch (err) {
                     throw new Error("Acesso negado. Verifique suas credenciais.")
                 }
