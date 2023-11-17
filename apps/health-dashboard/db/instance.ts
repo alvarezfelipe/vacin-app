@@ -9,7 +9,7 @@ const prismaClientSingleton = () => {
 
           console.log(username, password)
 
-          const user = await prisma.entity.findFirstOrThrow({
+          const user = await prisma.entity.findUniqueOrThrow({
             where: {
               username
             }
