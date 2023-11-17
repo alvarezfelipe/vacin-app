@@ -11,7 +11,7 @@ async function createManager(data: Prisma.ManegerCreateInput) {
 
 async function getManagers(
   query: Prisma.ManegerWhereInput = {},
-  include: Prisma.ManegerInclude = {},
+  include: Prisma.Manager = {},
 ) {
   const managers = await prisma.maneger.findMany({
     where: query,

@@ -38,12 +38,14 @@ const Form = (): JSX.Element => {
 
   const pathname = usePathname();
 
-  const onSubmit = (data: LoginFormInputs) => {
-    signIn("credentials", {
+  const onSubmit = async (data: LoginFormInputs) => {
+    const a = await signIn("credentials", {
       ...data,
-      redirect: true,
+      redirect: false,
       callbackUrl: pathname.split("?")[0],
     });
+
+    console.log(a)
   };
 
   return (
@@ -75,7 +77,7 @@ const Form = (): JSX.Element => {
           />
         </div>
         <div className="space-between mt-16 flex items-center">
-          <h3 className="flex-1 text-2xl text-normal dark:text-normal-dark">
+          <h3 className="flex-1 text-2xl text-normal dark:text-white">
             Login
           </h3>
           <motion.button
@@ -130,11 +132,11 @@ const InputUsername: React.FC<InputProps> = ({ error, value, inputProps }) => {
         autoComplete="off"
         {...inputProps}
         className={cn(
-          "peer w-full py-4 font-light text-black duration-200 dark:text-white",
+          "peer w-full py-4 font-light text-black duration-200 dark:text-white !outline-none",
           error.status && "placeholder:text-danger",
         )}
       />
-      <div className="baseline-input absolute bottom-0 left-0 h-px w-full"></div>
+      <div className="bg-neutral-300 absolute bottom-0 left-0 h-px w-full"></div>
       <div
         className={cn(
           "absolute bottom-0 left-0 z-10 h-px w-full scale-x-0 bg-black duration-200 dark:bg-white",
@@ -168,11 +170,11 @@ const InputPassword: React.FC<InputProps> = ({ error, value, inputProps }) => {
         autoComplete="off"
         {...inputProps}
         className={cn(
-          "peer flex-1 py-4 font-light text-black duration-200 dark:text-white",
+          "peer flex-1 py-4 font-light text-black duration-200 dark:text-white !outline-none",
           error.status && "placeholder:text-danger",
         )}
       />
-      <div className="baseline-input absolute bottom-0 left-0 h-px w-full"></div>
+      <div className="bg-neutral-300 absolute bottom-0 left-0 h-px w-full"></div>
       <div
         className={cn(
           "absolute bottom-0 left-0 z-10 h-px w-full scale-x-0 bg-black duration-200 dark:bg-white",

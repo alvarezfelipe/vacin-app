@@ -6,11 +6,16 @@ const prismaClientSingleton = () => {
     model: {
       entity: {
         async signIn(username: string, password: string) {
+
+          console.log(username, password)
+
           const user = await prisma.entity.findFirstOrThrow({
             where: {
               username
             }
           })
+
+          console.log(user)
 
           if(await bcrypt.compareSync(password, user.password)) {
             return user

@@ -1,4 +1,5 @@
 import prisma from "@/db/instance"
+import { exclude } from "@/lib/utils"
 import { Common } from "database"
 import NextAuth, { type NextAuthOptions } from "next-auth"
 import type { JWT } from "next-auth/jwt"
@@ -6,7 +7,7 @@ import CredentialsProvider from "next-auth/providers/credentials"
 import { z } from "zod"
 
 const CredentialsSchema = z.object({
-    username: z.string().length(6),
+    username: z.string().min(1),
     password: z.string().min(1)
 })
 
@@ -24,6 +25,8 @@ export const authOptions: NextAuthOptions = {
             async authorize(credentials, req) {
 
                 const { username, password } = credentials as z.infer<typeof CredentialsSchema>
+
+
                 // You need to provide your own logic here that takes the credentials
                 // submitted and returns either a object representing a user or value
                 // that is false/null if the credentials are invalid.
@@ -32,9 +35,13 @@ export const authOptions: NextAuthOptions = {
                 // (i.e., the request IP address)
                 try {
                     CredentialsSchema.parse({ username, password })
+                    console.log(username, password)
 
-                    return await prisma.entity.signIn(username, password)
+                    const a = await prisma.entity.signIn(username, password)
+                    console.log(a)
+                    return null
                 } catch (err) {
+                    console.log(err)
                     throw new Error("Acesso negado. Verifique suas credenciais.")
                 }
             }
